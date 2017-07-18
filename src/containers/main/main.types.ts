@@ -1,0 +1,1 @@
+export const ADD_TODO = '@lingviny/main/ADD_TODO';
