@@ -1,7 +1,7 @@
 import { Todo, IState } from './main.model';
 import * as TYPES from './main.types';
 
-const initialState: IState = {
+export const initialState: IState = {
   todos: [<Todo>{
     text: 'Use Redux with TypeScript',
     completed: false,

@@ -1,12 +1,9 @@
 import { Dispatch, bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { Route } from 'react-router';
 import * as React from 'react';
 
-import { MainActions, Todo } from './';
-
-interface IMainProps extends IProps {
-  todos: Todo[];
-}
+import { MainActions } from './';
 
 /**
  * https://github.com/DefinitelyTyped/DefinitelyTyped/issues/9951
@@ -14,10 +11,11 @@ interface IMainProps extends IProps {
 @(connect(
   (state: any) => ({ todos: state.main.todos, router: state.router }),
   (dispatch: Dispatch<void>) => ({
-    actions: bindActionCreators({ ...MainActions, }, dispatch)
+    actions: bindActionCreators({ ...MainActions, }, dispatch),
+    dispatch,
   }),
 ) as any)
-export default class MainContainer extends React.Component<IMainProps, any> {
+export default class MainContainer extends React.Component<IProps, any> {
 
   addTodo = () => {
     this.props.actions.addTodo({
@@ -29,10 +27,11 @@ export default class MainContainer extends React.Component<IMainProps, any> {
 
   render() {
     return (
-      <div className="todoapp">
-        <button onClick={this.addTodo}>Click</button>
-        {this.props.todos.map(m => m.text)}
-      </div>
+        <Route path={`${this.props.match.url}login`} component={Foo} />
     );
   };
 }
+
+const Foo = (): any => (
+  <h3>3FOOOOOO></h3>
+)

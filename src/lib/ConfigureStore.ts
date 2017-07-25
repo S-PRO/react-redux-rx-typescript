@@ -10,9 +10,7 @@ export default function (history: History) {
 
   // Build the middleware for intercepting and dispatching navigation actions
   const routerMiddleware = createRouterMiddleware(history);
-  const epicMiddleware = createEpicMiddleware(RootEpics)
-
-  const state = {};
+  const epicMiddleware = createEpicMiddleware(RootEpics);
 
   const composeEnhancers =
     typeof window === 'object' &&
@@ -24,15 +22,14 @@ export default function (history: History) {
     applyMiddleware(
       epicMiddleware,
       routerMiddleware,
-      createLogger()
+      createLogger(),
     ),
     // other store enhancers if any
   );
 
   const store: Store<any> = createStore(
     RootReducer,
-    state,
-    enhancer
+    enhancer,
   );
 
   return store;
