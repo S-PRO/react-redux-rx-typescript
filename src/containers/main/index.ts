@@ -10,6 +10,6 @@ export {
   MainState,
 };
 
-export { Todo, IState } from './main.model';
+export { IState } from './main.model';
 
 export default MainContainer;

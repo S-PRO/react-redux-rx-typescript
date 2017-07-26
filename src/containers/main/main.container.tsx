@@ -1,6 +1,5 @@
 import { Dispatch, bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { Route } from 'react-router';
 import * as React from 'react';
 
 import { MainActions } from './';
@@ -25,13 +24,7 @@ export default class MainContainer extends React.Component<IProps, any> {
     })
   };
 
-  render() {
-    return (
-        <Route path={`${this.props.match.url}login`} component={Foo} />
-    );
+  render(): any {
+    return null;
   };
 }
-
-const Foo = (): any => (
-  <h3>3FOOOOOO></h3>
-)
